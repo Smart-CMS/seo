@@ -2,13 +2,9 @@
 
 namespace SmartCms\Seo\Admin\Seos\Schemas;
 
-use Filament\Actions\Action;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
 use SmartCms\Seo\Admin\Actions\TranslateAction;
 

@@ -15,7 +15,7 @@ class SeoForm
     {
         return $schema
             ->components([
-                Select::make('language_id')->relationship('language', 'name')->hidden(!is_multi_lang())->default(main_lang_id()),
+                Select::make('language_id')->relationship('language', 'name')->hidden(! is_multi_lang())->default(main_lang_id()),
                 Hidden::make('language_id')->default(main_lang_id())->hidden(is_multi_lang()),
                 TextInput::make('title')
                     ->label(__('core::admin.seo_title'))

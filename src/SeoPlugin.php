@@ -1,15 +1,15 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace SmartCms\Seo;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class SeoPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'seo';
     }
 
     public function register(Panel $panel): void

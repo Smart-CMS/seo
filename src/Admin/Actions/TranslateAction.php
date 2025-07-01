@@ -26,6 +26,6 @@ class TranslateAction
                 $schema->getRecord()->seo()->updateOrCreate(['language_id' => lang()->getBySlug($language)->id], [$field => $value]);
             }
             Notification::make()->success()->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))->send();
-        });
+        })->hidden(lang()->adminLanguages()->count() == 1);
     }
 }

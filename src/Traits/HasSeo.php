@@ -26,7 +26,7 @@ trait HasSeo
      * Get the SEO for the current entity.
      *
      * @param  int|null  $languageId  The language ID to get the SEO for.
-     * @return \SmartCms\Core\Models\Seo
+     * @return \SmartCms\Seo\Models\Seo
      */
     public function getSeo($languageId = null)
     {

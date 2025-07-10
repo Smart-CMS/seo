@@ -8,7 +8,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
-use SmartCms\Seo\Admin\Actions\TranslateAction;
 
 class RelatedSeoForm
 {
@@ -46,7 +45,7 @@ class RelatedSeoForm
                                     ->columnSpanFull(),
                             ]);
                         })->toArray()
-                    )->columnSpanFull()
+                    )->columnSpanFull(),
                 ]
             );
     }

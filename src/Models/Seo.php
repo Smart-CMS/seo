@@ -4,9 +4,8 @@ namespace SmartCms\Seo\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use SmartCms\Lang\Models\Language;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * Class Seo
@@ -18,19 +17,36 @@ use SmartCms\Lang\Models\Language;
  * @property string $content The main content.
  * @property string $description The meta description.
  * @property string $keywords The meta keywords.
- * @property int $language_id The language identifier.
  * @property string $seoable_type The type of model this SEO belongs to.
  * @property int $seoable_id The ID of the model this SEO belongs to.
  * @property \DateTime $created_at The date and time when the model was created.
  * @property \DateTime $updated_at The date and time when the model was last updated.
- * @property-read \SmartCms\Lang\Models\Language $language The language of this SEO.
  * @property-read mixed $seoable The model this SEO belongs to.
  */
 class Seo extends Model
 {
     use HasFactory;
+    use HasTranslations;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'title' => 'array',
+        'heading' => 'array',
+        'summary' => 'array',
+        'content' => 'array',
+        'description' => 'array',
+        'keywords' => 'array',
+    ];
+
+    protected array $translatable = [
+        'title',
+        'heading',
+        'summary',
+        'content',
+        'description',
+        'keywords',
+    ];
 
     public function seoable(): MorphTo
     {
@@ -40,10 +56,5 @@ class Seo extends Model
     public function getTable()
     {
         return config('seo.table_name', 'seos');
-    }
-
-    public function language(): BelongsTo
-    {
-        return $this->belongsTo(Language::class);
     }
 }
